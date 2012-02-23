@@ -52,7 +52,7 @@ object Bootstrap {
     val availableIncludes = includePath filter {_.exists()} flatMap {_.listFiles()}
     val scriptname = command.thingToRun 
     val script = new File(scriptname)
-    val richerScript = new File(scriptname.replaceFirst(".scala", "")+defaultExpandedScriptExt))
+    val richerScript = new File(scriptname.replaceFirst(".scala", "")+defaultExpandedScriptExt)
     
     if (script.exists()) {
       val jars = util.Properties.javaClassPath.split(File.pathSeparator) map {new File(_)} collect {

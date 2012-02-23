@@ -4,3 +4,5 @@ dist/*
 target/
 *.pscala
 *~
+.classpath
+.project
