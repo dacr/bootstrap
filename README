@@ -1,0 +1,11 @@
+Bootstrap enables you to simplify scala scripts by adding #include support in your scripts.
+
+http://www.crosson.org/2012/01/simplifying-scala-scripts-adding.html
+
+How does it work :
+
+The principle is to override scala standard script startup mechanism by introducing an additionnal step which consist to expand the script with all includes it contains, and then gives to scala the new script resulting of expansion process.
+test.scala becomes test.pscala which will generate the savedcompile file test.pscala.jar. No recompilation will be required as soon as no change occured on test.scala or bootstrap.jar file. 
+
+You should also notice that the script is started using 'exec java -jar "$DIRNAME"/bootstrap.jar "$0" "$@"' and not 'exec scala ...' because bootstrap is an assembly jar which contains everything to run and compile scala scripts, and even more if you want, as it can include any third parties you may need, just add library dependencies ! So you only need one file, bootstrap.jar, to run any scala scripts, nothing to install, just one file to upload.
+
